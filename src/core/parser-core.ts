@@ -72,6 +72,7 @@ const parseMarkdownWithoutWrapper = (
     )
 
     //font styles
+    //TODO: handle sentences starting with bold text
     /**
      * (**bold**)
      */
@@ -139,23 +140,19 @@ const parseMarkdownIntoHTML = (
   const parsedMarkdown: ParsedMarkdown =
     parseMarkdownWithoutWrapper(markdown);
 
-  const wrappedParsedMarkdown: WrappedParsedMarkdown = parsedMarkdown
-    /**
-     * Wrapping everything inside a customizable div
-     * that is served with a usable id attribute
-     * this is not applied by default see src/route/parseMarkdown.ts for more information
-     */
-    /**
-     * Converting of the type string to type HTMLDivElement requires
-     * converting the string to unknown first and then HTMLDivElement
-     * since string and HTMLDivElement do not overlap and an overlap is
-     * needed between the types to create a bridge.
-     */
-    .replace(
-      /[\s\S]*/gim,
-      (content): string =>
-        `<div id="cube-markdown-parser">${content}</div>`,
-    ) as unknown as HTMLDivElement;
+  /**
+   * Wrapping everything inside a customizable div
+   * that is served with a usable id attribute
+   * this is not applied by default see src/route/parseMarkdown.ts for more information
+   */
+  /**
+   * Converting of the type string to type HTMLDivElement requires
+   * converting the string to unknown first and then HTMLDivElement
+   * since string and HTMLDivElement do not overlap and an overlap is
+   * needed between the types to create a bridge.
+   */
+  const wrappedParsedMarkdown: WrappedParsedMarkdown =
+    `<div id="cube-markdown-parser">${parsedMarkdown}</div>` as unknown as HTMLDivElement;
 
   return wrappedParsedMarkdown;
 };
@@ -185,6 +182,7 @@ const getBlobFromMarkdown = (markdown: Markdown): Blob => {
   const blobFromMarkdown: Blob = new Blob([template], {
     type: "text/html",
   });
+
   return blobFromMarkdown;
 };
 
