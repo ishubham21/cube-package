@@ -1,7 +1,7 @@
 {
   "name": "cube-package",
   "version": "1.0.1",
-  "description": "This package provide function that help in parsing markdown files",
+  "description": "An NPM package to render markdown",
   "main": "./src/index.ts",
   "repository": {
     "type": "git",
