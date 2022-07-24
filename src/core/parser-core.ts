@@ -44,6 +44,7 @@ const parseMarkdownWithoutWrapper = (
      * (##### => h5)
      * (###### => h6)
      */
+    //TODO: Handling trailing white-spaces
     .replace(/[\#]{6}(.+)/g, "<h6>$1</h6>")
     .replace(/[\#]{5}(.+)/g, "<h5>$1</h5>")
     .replace(/[\#]{4}(.+)/g, "<h4>$1</h4>")

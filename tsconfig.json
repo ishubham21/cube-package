@@ -10,6 +10,9 @@
     "strict": true,
   },
   "exclude": [
-    "./node_modules"
+    "./node_modules",
+    "tests",
+    "**/*.spec.ts",
+    "**/*.test.ts"
   ]
 }
