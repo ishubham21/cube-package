@@ -45,6 +45,7 @@ const parseMarkdownWithoutWrapper = (
      * (###### => h6)
      */
     //TODO: Handling trailing white-spaces
+    //TODO: Handling more than 6#s
     .replace(/[\#]{6}(.+)/g, "<h6>$1</h6>")
     .replace(/[\#]{5}(.+)/g, "<h5>$1</h5>")
     .replace(/[\#]{4}(.+)/g, "<h4>$1</h4>")
@@ -58,7 +59,7 @@ const parseMarkdownWithoutWrapper = (
      */
     .replace(
       /\!\[([^\]]+)\]\(([^\)]+)\)/g,
-      '<img src="$2" alt="$1" />',
+      '<img src="$2" alt="$1"/>',
     )
 
     //links
@@ -107,7 +108,10 @@ const parseMarkdownWithoutWrapper = (
     .replace(
       /^\s*(\n)?(.+)/gm,
       (content: ParsedMarkdown): ParsedMarkdown => {
-        return /\<(\/)?(h\d|ul|ol|li|code|blockquote|pre|img)/.test(
+        /**
+         * Not taking lines starting with whitespaces or carriage-returns
+         */
+        return /^\s*(\n)|\<(\/)?(h\d|ul|ol|li|code|blockquote|pre|img|)/.test(
           content,
         )
           ? content
