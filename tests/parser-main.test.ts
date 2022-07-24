@@ -90,7 +90,7 @@ describe("parser behaviour over different markdown commands", () => {
         expectedParsedMarkdown,
       );
     });
-  })
+  });
 
   describe("parse images", () => {
     it("should parse images into <img> tags", () => {
@@ -101,7 +101,7 @@ describe("parser behaviour over different markdown commands", () => {
         expectedParsedMarkdown,
       );
     });
-  })
+  });
 
   describe("parse links", () => {
     it("should parse link into <a> tags", () => {
@@ -112,12 +112,54 @@ describe("parser behaviour over different markdown commands", () => {
         expectedParsedMarkdown,
       );
     });
-  })
+  });
 
   describe("parse font styles", () => {
-    //b
-    //i
-    //del
-    
-  })
+    it("should parse bold commands", () => {
+      const markdown: Markdown = `some **bold** text`;
+      const expectedParsedMarkdown: ParsedMarkdown = `some <b>bold</b> text`;
+
+      expect(parseMarkdownWithoutWrapper(markdown)).toEqual(
+        expectedParsedMarkdown,
+      );
+    });
+
+    it("should parse italic commands", () => {
+      const markdown: Markdown = `some _italic_ text`;
+      const expectedParsedMarkdown: ParsedMarkdown = `some <i>italic</i> text`;
+
+      expect(parseMarkdownWithoutWrapper(markdown)).toEqual(
+        expectedParsedMarkdown,
+      );
+    });
+
+    it("should parse strikethrough commands", () => {
+      const markdown: Markdown = `some ~~strike~~ text`;
+      const expectedParsedMarkdown: ParsedMarkdown = `some <del>strike</del> text`;
+
+      expect(parseMarkdownWithoutWrapper(markdown)).toEqual(
+        expectedParsedMarkdown,
+      );
+    });
+
+    it("should parse a combination of font commands", () => {
+      const markdown: Markdown = `some **_~~strike~~_** text`;
+      const expectedParsedMarkdown: ParsedMarkdown = `some <i><b><del>strike</del></b></i> text`;
+
+      expect(parseMarkdownWithoutWrapper(markdown)).toEqual(
+        expectedParsedMarkdown,
+      );
+    });
+  });
+
+  describe("parse code blocks", () => {
+    it("should parse code blocks", () => {
+      const markdown: Markdown = "`code`";
+      const expectedParsedMarkdown: ParsedMarkdown = `<code>code</code>`;
+
+      expect(parseMarkdownWithoutWrapper(markdown)).toEqual(
+        expectedParsedMarkdown,
+      );
+    });
+  });
 });
