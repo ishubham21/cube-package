@@ -1,2 +1,6 @@
-sed -i 's^("registry": "https://registry-url")^"registry": "https://registry.npmjs.org"^' package.json
-npm publish --access public
+str="hello world, hello earth"
+oldstr="hello"
+newstr="apple"
+result=$(echo $str | sed "s/$oldstr/$newstr/")
+echo "Original String :  $str"
+echo "Replaced String :  $result"
