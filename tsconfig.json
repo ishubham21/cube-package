@@ -8,6 +8,8 @@
     "target": "es6",
     "skipLibCheck": true,
     "strict": true,
+    "declaration": true, // generate .d.ts files
+    "sourceMap": true, // generate source map
   },
   "exclude": [
     "./node_modules",
