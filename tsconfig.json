@@ -11,6 +11,7 @@
     "declaration": true, // generate .d.ts files
     "sourceMap": true, // generate source map
   },
+  "include": ["./src/**/*.ts"],
   "exclude": [
     "./node_modules",
     "tests",
