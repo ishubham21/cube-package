@@ -1,17 +1,13 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true});
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 
-
-
-
-var _buffer = require('buffer');
+var _buffer = require("buffer");
 
 /**
  * @param markdownText => markdown passed by the user
  * @returns => parsed markdown of the type string
  */
-const parseMarkdownWithoutWrapper = (
-  markdownText,
-) => {
+const parseMarkdownWithoutWrapper = (markdownText) => {
   const parsedMarkdown = markdownText
     //ol
     /**
@@ -106,19 +102,16 @@ const parseMarkdownWithoutWrapper = (
 
     //p - placing p as soon as new line is encountered
     //Making sure that other tags are intact against p
-    .replace(
-      /^\s*(\n)?(.+)/gm,
-      (content) => {
-        /**
-         * Not taking lines starting with whitespaces or carriage-returns
-         */
-        return /^\s*(\n)|\<(\/)?(h\d|ul|ol|li|code|blockquote|pre|img|)/.test(
-          content,
-        )
-          ? content
-          : "<p>" + content + "</p>";
-      },
-    )
+    .replace(/^\s*(\n)?(.+)/gm, (content) => {
+      /**
+       * Not taking lines starting with whitespaces or carriage-returns
+       */
+      return /^\s*(\n)|\<(\/)?(h\d|ul|ol|li|code|blockquote|pre|img|)/.test(
+        content,
+      )
+        ? content
+        : "<p>" + content + "</p>";
+    })
 
     //strip p from pre - had p in <pre>
     .replace(/(\<pre.+\>)\s*\n\<p\>(.+)\<\/p\>/gm, "$1$2");
@@ -134,11 +127,8 @@ const parseMarkdownWithoutWrapper = (
  * @returns parsed markdown of the type HTMLDivElement with an
  * id="cube-markdown-parser"
  */
-const parseMarkdownIntoHTML = (
-  markdown,
-) => {
-  const parsedMarkdown =
-    parseMarkdownWithoutWrapper(markdown);
+const parseMarkdownIntoHTML = (markdown) => {
+  const parsedMarkdown = parseMarkdownWithoutWrapper(markdown);
 
   /**
    * Wrapping everything inside a customizable div
@@ -151,8 +141,7 @@ const parseMarkdownIntoHTML = (
    * since string and HTMLDivElement do not overlap and an overlap is
    * needed between the types to create a bridge.
    */
-  const wrappedParsedMarkdown =
-    `<div id="cube-markdown-parser">${parsedMarkdown}</div>` ;
+  const wrappedParsedMarkdown = `<div id="cube-markdown-parser">${parsedMarkdown}</div>`;
 
   return wrappedParsedMarkdown;
 };
@@ -163,8 +152,7 @@ const parseMarkdownIntoHTML = (
  * parsed markdown
  */
 const getBlobFromMarkdown = (markdown) => {
-  const parsedMarkdown =
-    parseMarkdownWithoutWrapper(markdown);
+  const parsedMarkdown = parseMarkdownWithoutWrapper(markdown);
 
   const template = `
     <html>
@@ -186,8 +174,6 @@ const getBlobFromMarkdown = (markdown) => {
   return blobFromMarkdown;
 };
 
-
-
-
-
-exports.parseMarkdownIntoHTML = parseMarkdownIntoHTML; exports.parseMarkdownWithoutWrapper = parseMarkdownWithoutWrapper; exports.getBlobFromMarkdown = getBlobFromMarkdown;
+exports.parseMarkdownIntoHTML = parseMarkdownIntoHTML;
+exports.parseMarkdownWithoutWrapper = parseMarkdownWithoutWrapper;
+exports.getBlobFromMarkdown = getBlobFromMarkdown;

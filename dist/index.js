@@ -1,13 +1,9 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true});
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 
+var _parsercore = require("./core/parser-core");
 
-
-var _parsercore = require('./core/parser-core');
-
-
-
-
-var _parsertypes = require('./types/parser-types');
+var _parsertypes = require("./types/parser-types");
 
 /**
  * parseMarkdownIntoHTML - returns a <div> with user-provided
@@ -31,11 +27,10 @@ var _parsertypes = require('./types/parser-types');
  * ParsedMarkdown - a type that is associated with the resultant markdown
  */
 
-
-
-
-
-
-
-
-exports.parseMarkdownIntoHTML = _parsercore.parseMarkdownIntoHTML; exports.parseMarkdownWithoutWrapper = _parsercore.parseMarkdownWithoutWrapper; exports.getBlobFromMarkdown = _parsercore.getBlobFromMarkdown; exports.Markdown = _parsertypes.Markdown; exports.WrappedParsedMarkdown = _parsertypes.WrappedParsedMarkdown; exports.ParsedMarkdown = _parsertypes.ParsedMarkdown;
+exports.parseMarkdownIntoHTML = _parsercore.parseMarkdownIntoHTML;
+exports.parseMarkdownWithoutWrapper =
+  _parsercore.parseMarkdownWithoutWrapper;
+exports.getBlobFromMarkdown = _parsercore.getBlobFromMarkdown;
+exports.Markdown = _parsertypes.Markdown;
+exports.WrappedParsedMarkdown = _parsertypes.WrappedParsedMarkdown;
+exports.ParsedMarkdown = _parsertypes.ParsedMarkdown;
