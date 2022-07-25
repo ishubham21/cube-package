@@ -1,6 +1,6 @@
 {
   "name": "cube-package",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An NPM package to render markdown",
   "main": "./src/index.ts",
   "repository": {
