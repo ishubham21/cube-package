@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Publish to GitHub Package Registry
       - name: Checkout Repo
         uses: actions/checkout@main
 
