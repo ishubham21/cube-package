@@ -19,6 +19,12 @@ npm publish --access public
 
 #Publishing the package on GPR
 
+# touch .npmrc
+
+# cat .npmrc
+
+# echo "@ishubham21:registry=https://npm.pkg.github.com" > ~./.npmrc
+
 # sed -i 's^"name": "cube-package"^"name": "@ishubham21/cube-package"^' package.json
 
 # sed -i 's^registry.npmjs.org^npm.pkg.github.com/^' package.json

@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Publish to GitHub Package Registry
       - name: Checkout Repo
         uses: actions/checkout@main
 
@@ -40,23 +41,10 @@ jobs:
           restore-keys: |
             nodeModules-
 
-      # - name: Install dependencies
-      #   run: yarn install --frozen-lockfile
-      #   env:
-      #     CI: true
-
-      -name: Remove Dist
-        run: rm -rf ./dist
-      
-      -name: Build
-        run: yarn build
-      
-      -name: Copy package.json
-        run: cp package.json dist/package.json && cd dist
-
-      -name: Update Main
-        run: |
-        sed -i 's^"main": "./dist/index.js"^"main": "./index.js"^' package.json
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        env:
+          CI: true
 
       - name: Update Package Name
         run: |

@@ -1,6 +1,6 @@
 {
-  "name": "@ishubham21/cube-package",
-  "version": "1.0.14",
+  "name": "cube-package",
+  "version": "1.1.5",
   "description": "An NPM package to render markdown",
   "main": "./index.js",
   "repository": {
@@ -16,10 +16,7 @@
     "format": "prettier --write \"**/*.{js,ts}\"",
     "lint": "eslint \"**/*.{js,ts}\" --quiet",
     "lint:fix": "eslint \"**/*.{js,ts}\" --fix",
-    "push:gh": "yarn run build && git add . && git commit -m \"adding a new build version\" && git push origin main",
-    "prebuild": "rm -rf ./dist",
-    "preversion": "yarn run build",
-    "postversion": "git push --follow-tags"
+    "publish:npm": "chmod +x scripts/publish.sh && scripts/publish.sh"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
@@ -40,6 +37,6 @@
     "typescript": "^4.7.4"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org"
   }
 }
