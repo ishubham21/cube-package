@@ -13,6 +13,7 @@ Ever thought of making an application that takes your markdown and renders it fo
 - **Smaller bundle size** - Since only distribution files are exported, the bundle size is optimised for all your use-cases.
 - **Written in typescript** - Ah, what else do I need to say.
 - **Source Maps** - The distribution version of Cube Package also contains source maps for efficient debugging.
+- **0 Dependencies** - Having no dependencies makes cube package a great choice for developers who care about getting work done with speed!  
 
 ## Usage
 
