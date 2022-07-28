@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git://github.com/ishubham21/cube-package.git"
   },
-  "homepage": "https://github.com/serverless/serverless#readme",
+  "homepage": "https://github.com/ishubham21/cube-package#readme",
   "author": "Shubham Gautam <https://meshubham.live>",
   "license": "MIT",
   "scripts": {
