@@ -36,6 +36,15 @@
     "prettier": "^2.7.1",
     "typescript": "^4.7.4"
   },
+  "keywords": [
+    "markdown",
+    "parser",
+    "markdown parser",
+    "blob",
+    "generate",
+    "markdown-it",
+    "pluggable"
+  ],
   "publishConfig": {
     "registry": "https://registry-url"
   }
