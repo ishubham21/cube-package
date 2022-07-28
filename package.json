@@ -1,18 +1,19 @@
 {
   "name": "cube-package",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "An NPM package to render markdown",
   "main": "./dist/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/ishubham21/cube-package.git"
   },
+  "homepage": "https://github.com/serverless/serverless#readme",
   "author": "Shubham Gautam <https://meshubham.live>",
   "license": "MIT",
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "build": "rm -rf ./dist && tsc && npm version patch",
+    "build": "rm -rf ./dist && tsc",
     "format": "prettier --write \"**/*.{js,ts}\"",
     "lint": "eslint \"**/*.{js,ts}\" --quiet",
     "lint:fix": "eslint \"**/*.{js,ts}\" --fix",
