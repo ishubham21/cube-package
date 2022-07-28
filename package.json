@@ -12,7 +12,7 @@
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "build": "rm -rf ./dist && tsc",
+    "build": "rm -rf ./dist && tsc && npm version patch",
     "format": "prettier --write \"**/*.{js,ts}\"",
     "lint": "eslint \"**/*.{js,ts}\" --quiet",
     "lint:fix": "eslint \"**/*.{js,ts}\" --fix",
