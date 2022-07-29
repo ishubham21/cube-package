@@ -19,7 +19,7 @@ Ever thought of making an application that takes your markdown and renders it fo
 
 ### Getting a string from Markdown -
 
-```
+```javascript
 import { parseMarkdownWithoutWrapper } from "cube-package";
 const parsedMardown = parseMarkdownWithoutWrapper("#heading");
 
@@ -29,7 +29,7 @@ console.log(parsedMarkdown);
 
 or
 
-```
+```javascript
 const { parseMarkdownWithoutWrapper } from = require("cube-package");
 const parsedMardown = parseMarkdownWithoutWrapper("#heading");
 
@@ -41,7 +41,7 @@ console.log(parsedMarkdown);
 
 This method wraps your markdown into a `div` that has an id attribute `cube-markdown-parser`
 
-```
+```javascript
 import { parseMarkdownIntoHTML } from "cube-package";
 const parsedMardown = parseMarkdownWithoutWrapper("#heading");
 
@@ -51,7 +51,7 @@ console.log(parsedMarkdown);
 
 Or
 
-```
+```javascript
 const { parseMarkdownIntoHTML } from = require("cube-package");
 const parsedMardown = parseMarkdownWithoutWrapper("#heading");
 
@@ -63,7 +63,7 @@ console.log(parsedMarkdown);
 
 This method results in a blob that can be used with `createObjectURL` to get an URL to be used with an iFrame.
 
-```
+```javascript
 import { getBlobFromMarkdown } from "cube-package";
 const blob = getBlobFromMarkdown("#heading");
 
@@ -73,7 +73,7 @@ console.log(blob);
 
 or
 
-```
+```javascript
 const { getBlobFromMarkdown } = require("cube-package");
 const blob = getBlobFromMarkdown("#heading");
 
